@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=poppins">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+  <div>
+    <h2>TO-DO-LIST</h2>
+    <h1>add item</h1>
+     <input type="text" id="textitem"/>
+     <input type="submit" value="Add" onclick="addItem()"/>
+     <ul id="items-list"></ul>
+  </div>
+  
+   <script>
+     const todos=[];
+     function showToDoList(){
+      const list=document.getElementById("items-list");
+      list.innerHTML="";
+
+      for(const value of todos){
+        // create li item
+        const item=document.createElement("li");
+
+        //assign value to element
+        item.innerText=value;
+
+        // add elementsto list
+        list.appendChild(item)
+
+      }
+     }
+
+     function addItem(){
+      const textbox=document.getElementById("textitem")
+      const value=textbox.value;
+      todos.push(value);
+      showToDoList();
+     }
+
+   </script>
+</body>
+</html>
